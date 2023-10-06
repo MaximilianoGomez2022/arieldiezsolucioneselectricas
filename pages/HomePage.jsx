@@ -106,10 +106,10 @@ function HomePage(){
           <figure>                  
             <picture >
                 <source media="(max-width: 378px)" srcSet="../assets/banner-378.jpg"/>
-                <source media="(max-width: 576px)" srcSet="./assets/banner-576.jpg"/>
-                <source media="(max-width: 768px)" srcSet="../src/assets/banner-768.jpg"/>
-                <source media="(max-width: 991px)" srcSet="../src/assets/banner-991.jpg"/>
-                <img src="../src/assets/banner-1920.jpg" alt="imgs/banner de portada iagen de un tablero de un auto"/>
+                <source media="(max-width: 576px)" srcSet="../assets/banner-576.jpg"/>
+                <source media="(max-width: 768px)" srcSet="../assets/banner-768.jpg"/>
+                <source media="(max-width: 991px)" srcSet="../assets/banner-991.jpg"/>
+                <img src="../assets/banner-1920.jpg" alt="banner de bienvenida al sitio"/>
             </picture>
           </figure>
         </section>
@@ -117,22 +117,22 @@ function HomePage(){
           <h2>NUESTROS SERVICIOS</h2>
           <div className="contenedor-servicios">
           <div className="item" data-aos="fade-up">
-          <img src="../src/assets/pastilla-1.svg" alt=""/>
+          <img src="../assets/pastilla-1.svg" alt=""/>
           <h3>INSTALACIONES<br/>DOMICILIARIAS</h3>
           <p>jwoeghskdj dshjisdghiohdsg hiosdhgoihdsg ihodsdihgoh</p>
           </div>
           <div className="item" data-aos="fade-up">
-              <img src="../src/assets/pastilla-2.svg" alt=""/>
+              <img src="../assets/pastilla-2.svg" alt=""/>
               <h3>MONTAJES<br/>GENERAL</h3>
               <p>jwoeghskdj dshjisdghiohdsg hiosdhgoihdsg ihodsdihgoh</p>
           </div>
           <div className="item" data-aos="fade-up">
-              <img src="../src/assets/pastilla-3.svg" alt=""/>
+              <img src="../assets/pastilla-3.svg" alt=""/>
               <h3>ILUMINACIÓN<br/>EXTERIOR E INTERIOR</h3>
               <p>jwoeghskdj dshjisdghiohdsg hiosdhgoihdsg ihodsdihgoh</p>
           </div>
           <div className="item" data-aos="fade-up">
-              <img src="../src/assets/pastilla-4.svg" alt=""/>
+              <img src="../assets/pastilla-4.svg" alt=""/>
               <h3>AUTOMATICOS<br/>DE TANQUE</h3>
               <p>jwoeghskdj dshjisdghiohdsg hiosdhgoihdsg ihodsdihgoh</p>
           </div>
@@ -144,7 +144,7 @@ function HomePage(){
           {trabajos.map(({_id, nombre, portada}) =>
           <article key={_id} className="contenedor-trabajos">
             <Link to={`/trabajos/${_id}`}>
-                <img src={`../src/assets/${portada}`}></img>
+                <img src={`../assets/${portada}`}></img>
             </Link>
           </article> )}
           </div>
@@ -152,11 +152,11 @@ function HomePage(){
         <div id="separador">
         <figure>                  
             <picture >
-                <source media="(max-width: 378px)" srcSet="../src/assets/separador-cel.png"/>
-                <source media="(max-width: 576px)" srcSet="../src/assets/separador-576.png"/>
-                <source media="(max-width: 768px)" srcSet="../src/assets/separador-768.png"/>
-                <source media="(max-width: 991px)" srcSet="../src/assets/separador-991.png"/>
-                <img src="../src/assets/separador-1920.png" alt="imgs/banner de portada iagen de un tablero de un auto"/>
+                <source media="(max-width: 378px)" srcSet="../assets/separador-cel.png"/>
+                <source media="(max-width: 576px)" srcSet="../assets/separador-576.png"/>
+                <source media="(max-width: 768px)" srcSet="../assets/separador-768.png"/>
+                <source media="(max-width: 991px)" srcSet="../assets/separador-991.png"/>
+                <img src="../assets/separador-1920.png" alt="imgs/banner de portada iagen de un tablero de un auto"/>
             </picture>
           </figure>
         </div>
@@ -199,11 +199,11 @@ function HomePage(){
         <div id="separador-redes">
         <figure>                  
             <picture >
-                <source media="(max-width: 378px)" srcSet="../src/assets/separador-cel-redes.png"/>
-                <source media="(max-width: 576px)" srcSet="../src/assets/separador-redes-576.png"/>
-                <source media="(max-width: 768px)" srcSet="../src/assets/separador-redes-768.png"/>
-                <source media="(max-width: 991px)" srcSet="../src/assets/separador-redes-991.png"/>
-                <img src="../src/assets/separador-redes-1920.png" alt="imgs/banner de portada iagen de un tablero de un auto"/>
+                <source media="(max-width: 378px)" srcSet="../assets/separador-cel-redes.png"/>
+                <source media="(max-width: 576px)" srcSet="../assets/separador-redes-576.png"/>
+                <source media="(max-width: 768px)" srcSet="../assets/separador-redes-768.png"/>
+                <source media="(max-width: 991px)" srcSet="../assets/separador-redes-991.png"/>
+                <img src="../assets/separador-redes-1920.png" alt="separador"/>
             </picture>
           </figure>
         </div>
@@ -211,16 +211,16 @@ function HomePage(){
             <h2>NUESTRAS REDES</h2>
             <div className="contenedor-redes">  
             <div className="item" data-aos="fade-up">
-            <a><img src="../src/assets/redes-17.svg" alt=""/></a>
+            <a><img src="../assets/redes-17.svg" alt="icono de facebook"/></a>
             </div>
             <div className="item" data-aos="fade-up">
-                <img src="../src/assets/redes-18.svg" alt=""/>
+                <img src="../assets/redes-18.svg" alt="icono de whatsapp"/>
             </div>
             <div className="item" data-aos="fade-up">
-                <img src="../src/assets/redes-19.svg" alt=""/>
+                <img src="../assets/redes-19.svg" alt="icono de gmail"/>
             </div>
             <div className="item" data-aos="fade-up">
-                <img src="../src/assets/redes-20.svg" alt=""/>
+                <img src="../assets/redes-20.svg" alt="icono de instagram"/>
             </div>
             </div>
         </section>
