@@ -105,8 +105,8 @@ function HomePage(){
         </div>
           <figure>                  
             <picture >
-                <source media="(max-width: 378px)" srcSet="../src/assets/banner-378.jpg"/>
-                <source media="(max-width: 576px)" srcSet="../src/assets/banner-576.jpg"/>
+                <source media="(max-width: 378px)" srcSet="../assets/banner-378.jpg"/>
+                <source media="(max-width: 576px)" srcSet="./assets/banner-576.jpg"/>
                 <source media="(max-width: 768px)" srcSet="../src/assets/banner-768.jpg"/>
                 <source media="(max-width: 991px)" srcSet="../src/assets/banner-991.jpg"/>
                 <img src="../src/assets/banner-1920.jpg" alt="imgs/banner de portada iagen de un tablero de un auto"/>
