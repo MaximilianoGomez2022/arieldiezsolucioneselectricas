@@ -30,6 +30,11 @@ header {
     height: 76px;
 }
 
+body {
+    max-width: 1920px;
+    margin: auto;
+}
+
 #logo {
     background: url(./assets/logo.svg);
     width: 230px;
