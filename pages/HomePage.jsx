@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import *as TrabajosServices from '../services/trabajos.services.js'
+import *as TrabajosServices from '/services/trabajos.services.js'
 import emailjs from '@emailjs/browser';
 import React, { useRef } from 'react';
 import { Link } from "react-router-dom";
