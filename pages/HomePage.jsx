@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import *as TrabajosServices from '/services/trabajos.services.js'
+import *as TrabajosServices from '../services/trabajos.services.js'
 import emailjs from '@emailjs/browser';
 import React, { useRef } from 'react';
 import { Link } from "react-router-dom";
@@ -141,7 +141,7 @@ function HomePage(){
         <section id="trabajos">
           <h2>TRABAJOS REALIZADOS</h2>
           <div className="contenedor-trabajos">
-          {trabajos.map(({_id, nombre, portada}) =>
+          {trabajos.map(({_id, portada}) =>
           <article key={_id} className="contenedor-trabajos">
             <Link to={`/trabajos/${_id}`}>
                 <img src={`../assets/${portada}`}></img>

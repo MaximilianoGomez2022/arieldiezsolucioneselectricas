@@ -1,5 +1,5 @@
 async function find() {
-    return fetch('http://localhost:2022/api/trabajos')
+    return fetch('https://arieldiezsolucioneselectricas.vercel.app/api/trabajos')
         .then(response => {
             if (response.ok) {
                 return response.json()
