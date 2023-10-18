@@ -21,10 +21,10 @@ function App() {
                 <li><a href="#">cerrar</a></li>
             </ul>
             <ul id="barra">
-                <li><Link to="/">HOME</Link></li>
-                <li><Link to="#servicios">SERVICIOS</Link></li>
-                <li><Link to="#trabajos">TRABAJOS</Link></li>
-                <li><Link to="#contacto">CONTACTO</Link></li>
+                <li><a href="/">HOME</a></li>
+                <li><a href="#servicios">SERVICIOS</a></li>
+                <li><a href="#trabajos">TRABAJOS</a></li>
+                <li><a href="#contacto">CONTACTO</a></li>
             </ul>
         </nav>
         </header>

@@ -1,12 +1,24 @@
 import { useState, useEffect } from "react"
 import *as TrabajosServices from '../services/trabajos.services.js'
-import emailjs from '@emailjs/browser';
 import React, { useRef } from 'react';
-import { Link } from "react-router-dom";
+import emailjs from '@emailjs/browser';
+import Modal from '../src/components/modal.jsx'
 
 function HomePage(){
 
   const [trabajos, setTrabajos] = useState([])
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleImageClick = (imageSrc) => {
+    setSelectedImage(imageSrc);
+    setModalOpen(true);
+    console.log('abrio', imageSrc)
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+  };
 
   useEffect(()=>{
       TrabajosServices.find()
@@ -17,12 +29,24 @@ function HomePage(){
   }, [])
 
   //Email
+
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_d21inq5', 'template_j3jwudj', form.current, '_f0sHcwqX9xxEzUtD')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
+
   let [nombre, setNombre] = useState('')
   let [mail, setMail] = useState('')
-  let [asunto, setAsunto] = useState('')
   let [mensaje, setMensaje] = useState('')
   let [error, setError] = useState([])
-  let form = useRef();
 
   function onSubmit(event){
       event.preventDefault()
@@ -88,10 +112,6 @@ function HomePage(){
       setMail(event.target.value)
   }
 
-  function OnChangeAsunto(event){
-      setAsunto(event.target.value)
-  }
-
   function OnChangeMensaje(event){
       setMensaje(event.target.value)
   }
@@ -109,7 +129,7 @@ function HomePage(){
                 <source media="(max-width: 576px)" srcSet="../assets/banner-576.jpg"/>
                 <source media="(max-width: 768px)" srcSet="../assets/banner-768.jpg"/>
                 <source media="(max-width: 991px)" srcSet="../assets/banner-991.jpg"/>
-                <img src="../assets/banner-1920.jpg" alt="banner de bienvenida al sitio"/>
+                <img src="../assets/banner-1920.jpg" alt="imgs/banner de portada iagen de un tablero de un auto"/>
             </picture>
           </figure>
         </section>
@@ -119,35 +139,59 @@ function HomePage(){
           <div className="item" data-aos="fade-up">
           <img src="../assets/pastilla-1.svg" alt=""/>
           <h3>INSTALACIONES<br/>DOMICILIARIAS</h3>
-          <p>jwoeghskdj dshjisdghiohdsg hiosdhgoihdsg ihodsdihgoh</p>
+          <p>Canalizaciones<br/>Cableados, re cableado, instalación de jabalina (puesta a tierra).</p>
           </div>
           <div className="item" data-aos="fade-up">
               <img src="../assets/pastilla-2.svg" alt=""/>
               <h3>MONTAJES<br/>GENERAL</h3>
-              <p>jwoeghskdj dshjisdghiohdsg hiosdhgoihdsg ihodsdihgoh</p>
+              <p>Bandejas portacables, gabinetes, todo tipo de luminarias públicas, galponeras, etc.</p>
           </div>
           <div className="item" data-aos="fade-up">
               <img src="../assets/pastilla-3.svg" alt=""/>
               <h3>ILUMINACIÓN<br/>EXTERIOR E INTERIOR</h3>
-              <p>jwoeghskdj dshjisdghiohdsg hiosdhgoihdsg ihodsdihgoh</p>
+              <p>Farolas de jardín, iluminación de piletas, artefactos embutidos en interior, proyector, reflector, etc.</p>
           </div>
           <div className="item" data-aos="fade-up">
               <img src="../assets/pastilla-4.svg" alt=""/>
               <h3>AUTOMATICOS<br/>DE TANQUE</h3>
-              <p>jwoeghskdj dshjisdghiohdsg hiosdhgoihdsg ihodsdihgoh</p>
+              <p>Tablero de comando manual automático, cableado y colocación de boya nivel de agua, etc.</p>
           </div>
           </div>
         </section>
         <section id="trabajos">
           <h2>TRABAJOS REALIZADOS</h2>
           <div className="contenedor-trabajos">
-          {trabajos.map(({_id, portada}) =>
-          <article key={_id} className="contenedor-trabajos">
-            <Link to={`/trabajos/${_id}`}>
-                <img src={`../assets/${portada}`}></img>
-            </Link>
+          {trabajos.map(({_id, nombre, portada}) =>
+          <article key={_id}>
+                <img className="imagenes-trabajos" src={`../assets/${portada}`}
+                onClick={() => handleImageClick(portada)}></img>
           </article> )}
           </div>
+        </section>
+        <section id="videos">
+            <h2>VIDEOS</h2>
+            <div className="contenedor-videos">
+            <div>
+            <video controls>
+                <source src="../assets/video-1.mp4" type="video/mp4"/>
+            </video>
+            </div> 
+            <div>
+            <video controls>
+                <source src="../assets/video-2.mp4" type="video/mp4"/>
+            </video>
+            </div>
+            <div>  
+            <video controls>
+                <source src="../assets/video-3.mp4" type="video/mp4"/>
+            </video>
+            </div>
+            <div>
+            <video controls>
+                <source src="../assets/video-4.mp4" type="video/mp4"/>
+            </video>
+            </div>
+            </div>
         </section>
         <div id="separador">
         <figure>                  
@@ -162,7 +206,7 @@ function HomePage(){
         </div>
         <section id="contacto">
           <h2>CONTACTO</h2>
-          <form ref={form} onSubmit={onSubmit}>
+          <form ref={form} onSubmit={sendEmail}>
             <div id='success-envio' className='success-envio-oculto'>
             El mensaje se envió correctamente
             </div>
@@ -171,20 +215,15 @@ function HomePage(){
             </div>
             <div className="form-labels">
                 <div>
-                    <label htmlFor="from_name">Nombre</label>
-                    <input type="text" name="from_name" id="from_name" placeholder="Nombre" onChange={OnChangeNombre} value={nombre}/>
+                    <label htmlFor="user_name">Nombre</label>
+                    <input type="text" name="user_name" id="user_name" placeholder="Nombre" onChange={OnChangeNombre} value={nombre}/>
                     <div id="error-nombre"></div>
-                </div>
-                <div>
-                    <label htmlFor="Asunto">Asunto</label>
-                    <input type="text" name="Asunto" id="Asunto" placeholder="Asunto" onChange={OnChangeAsunto} value={asunto}/>
-                    <div id="error-asunto"></div>
                 </div>
             </div>
             <div className="form-labels">
                 <div>
-                    <label htmlFor="email">Email</label>
-                    <input type="email" name="email" id="email" placeholder="Email" onChange={OnChangeMail} value={mail}/>
+                    <label htmlFor="user_email">Email</label>
+                    <input type="email" name="user_email" id="user_email" placeholder="Email" onChange={OnChangeMail} value={mail}/>
                     <div id="error-mail"></div>
                 </div>
             </div>
@@ -203,7 +242,7 @@ function HomePage(){
                 <source media="(max-width: 576px)" srcSet="../assets/separador-redes-576.png"/>
                 <source media="(max-width: 768px)" srcSet="../assets/separador-redes-768.png"/>
                 <source media="(max-width: 991px)" srcSet="../assets/separador-redes-991.png"/>
-                <img src="../assets/separador-redes-1920.png" alt="separador"/>
+                <img src="../assets/separador-redes-1920.png" alt="imgs/banner de portada iagen de un tablero de un auto"/>
             </picture>
           </figure>
         </div>
@@ -211,19 +250,25 @@ function HomePage(){
             <h2>NUESTRAS REDES</h2>
             <div className="contenedor-redes">  
             <div className="item" data-aos="fade-up">
-            <a><img src="../assets/redes-17.svg" alt="icono de facebook"/></a>
+            <a><img src="../assets/redes-17.svg" alt=""/></a>
             </div>
             <div className="item" data-aos="fade-up">
-                <img src="../assets/redes-18.svg" alt="icono de whatsapp"/>
+                <a href="https://api.whatsapp.com/send?phone=1169993384" target="_blank"><img src="../assets/redes-18.svg" alt="logo de whatsapp"/></a>
             </div>
             <div className="item" data-aos="fade-up">
-                <img src="../assets/redes-19.svg" alt="icono de gmail"/>
+                <a href="mailto:arieldiez16@gmail.com"><img src="../assets/redes-19.svg" alt=""/></a>
             </div>
             <div className="item" data-aos="fade-up">
-                <img src="../assets/redes-20.svg" alt="icono de instagram"/>
+                <a href="https://www.instagram.com/a.d.solucioneselectricas/" target="_blank"><img src="../assets/redes-20.svg" alt=""/></a>
             </div>
+            </div>
+            <div className="logo-wsp">
+            <a href="https://api.whatsapp.com/send?phone=1169993384" target="_blank">
+                <img src="../assets/wspp.png" alt="logo de WhatsApp"/>
+            </a>
             </div>
         </section>
+        <Modal isOpen={isModalOpen} imageSrc={selectedImage} onClose={handleCloseModal} />
         </main>
           )}
 
