@@ -33,8 +33,6 @@ function App() {
     <Routes>
     <Route path='/' element={<HomePage/>}></Route>
 
-    <Route path='/trabajos/:id' element={<DetalleTrabajo/>}></Route>
-
     </Routes>
     </Content>
 
