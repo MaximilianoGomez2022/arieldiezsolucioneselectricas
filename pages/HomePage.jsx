@@ -263,7 +263,7 @@ function HomePage(){
             </div>
             </div>
             <div className="logo-wsp">
-            <a href="https://api.whatsapp.com/send?phone=1169993384" target="_blank">
+            <a href="https://api.whatsapp.com/send?phone=541169993384" target="_blank">
                 <img src="../assets/wspp.png" alt="logo de WhatsApp"/>
             </a>
             </div>
