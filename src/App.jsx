@@ -1,5 +1,4 @@
 import HomePage from "../pages/HomePage"
-import DetalleTrabajo from "../pages/DetalleTrabajo"
 import {Routes, Route, Link, useNavigate, Navigate} from 'react-router-dom'
 import Header from './components/Header'
 import Content from './components/Content'
