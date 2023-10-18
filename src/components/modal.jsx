@@ -9,8 +9,8 @@ const Modal = ({ isOpen, imageSrc, onClose }) => {
   return (
     <div className="modal">
       <div className="modal-content" onClick={onClose}>
-        <img src={`../src/assets/${imageSrc}`} alt="Imagen modal" onClick={onClose} />
-        <img src='../src/assets/cerrar-modal.png' className='modal-button' onClick={onClose}></img>
+        <img src={`../assets/${imageSrc}`} alt="Imagen modal" onClick={onClose} />
+        <img src='../assets/cerrar-modal.png' className='modal-button' onClick={onClose}></img>
       </div>
     </div>
   );
