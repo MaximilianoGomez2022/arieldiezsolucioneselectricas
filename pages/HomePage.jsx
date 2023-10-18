@@ -253,7 +253,7 @@ function HomePage(){
             <a><img src="../assets/redes-17.svg" alt=""/></a>
             </div>
             <div className="item" data-aos="fade-up">
-                <a href="https://api.whatsapp.com/send?phone=1169993384" target="_blank"><img src="../assets/redes-18.svg" alt="logo de whatsapp"/></a>
+                <a href="https://api.whatsapp.com/send?phone=541169993384" target="_blank"><img src="../assets/redes-18.svg" alt="logo de whatsapp"/></a>
             </div>
             <div className="item" data-aos="fade-up">
                 <a href="mailto:arieldiez16@gmail.com"><img src="../assets/redes-19.svg" alt=""/></a>
